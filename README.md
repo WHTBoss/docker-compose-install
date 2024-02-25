@@ -20,8 +20,8 @@
     
     docker-compose安装完成
     
-    #1、解压docker-23.0.1.tgz
-    tar -xf /docker-23.0.1.tgz
+    #1、解压docker-24.0.7.tgz
+    tar -xf /docker-24.0.7.tgz
     
     #2、复制docker命令到系统
     cp /docker/* /usr/bin/
