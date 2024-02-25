@@ -29,27 +29,27 @@
     #3、配置docker启动文件
     vi /etc/systemd/system/docker.service
     输入以下内容
-    [Unit]
-    Description=Docker Application Container Engine
-    Documentation=https://docs.docker.com
-    After=network-online.target firewalld.service
-    Wants=network-online.target
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target firewalld.service
+Wants=network-online.target
 
-    [Service]
-    Type=notify
-    ExecStart=/usr/bin/dockerd --selinux-enabled=false --insecure-registry=XXX.XXX.XXX.XXX
-    ExecReload=/bin/kill -s HUP $MAINPID
-    LimitNOFILE=infinity
-    LimitNPROC=infinity
-    LimitCORE=infinity
-    Delegate=yes
-    KillMode=process
-    Restart=on-failure
-    StartLimitBurst=3
-    StartLimitInterval=60s
+[Service]
+Type=notify
+ExecStart=/usr/bin/dockerd --selinux-enabled=false --insecure-registry=XXX.XXX.XXX.XXX
+ExecReload=/bin/kill -s HUP $MAINPID
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+Delegate=yes
+KillMode=process
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
     
     #4、赋予docker启动文件启动权限
     chmod 644 /etc/systemd/system/docker.service
@@ -61,17 +61,17 @@
     mkdir /etc/docker
     vi /etc/docker/daemon.json
     输入以下内容
-    {
-	"registry-mirrors": [
-	  "https://registry.docker-cn.com",
-	  "https://dockerproxy.com",
-	  "https://hub-mirror.c.163.com",
-          "https://mirror.baidubce.com",
-	  "https://ccr.ccs.tencentyun.com",
-          "https://docker.nju.edu.cn",
-          "https://registry.hub.docker.com"
-       ]
-    }
+{
+   "registry-mirrors": [
+      "https://registry.docker-cn.com",
+      "https://dockerproxy.com",
+      "https://hub-mirror.c.163.com",
+      "https://mirror.baidubce.com",
+      "https://ccr.ccs.tencentyun.com",
+      "https://docker.nju.edu.cn",
+      "https://registry.hub.docker.com"
+   ]
+}
     
     #7、启动docker    
     systemctl start docker
