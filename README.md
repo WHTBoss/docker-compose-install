@@ -9,7 +9,7 @@
 	
 2.将docker-24.0.7.tgz与docker-compose-linux-x86_64放在Linux系统的根目录
 
-	#1、修改脚本文件名称为docker-compose
+    #1、修改脚本文件名称为docker-compose
     cp /docker-compose-linux-x86_64 docker-compose
     
     #2、将文件复制到/usr/bin下[该目录下自动配置了环境变量，移动到该目录下即可完成环境变量配置]
@@ -20,7 +20,7 @@
     
     docker-compose安装完成
     
-	#1、解压docker-23.0.1.tgz
+    #1、解压docker-23.0.1.tgz
     tar -xf /docker-23.0.1.tgz
     
     #2、复制docker命令到系统
